@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard – AquaPure | Manage Your Services</title>
+  <meta name="description" content="Manage your AquaPure water purifier services from your personal dashboard. Book services, track history, and manage your account." />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar" id="sidebar" aria-label="Dashboard sidebar">
+      <!-- Logo -->
+      <div class="sidebar-logo">
+        <span class="sidebar-logo-icon">💧</span>
+        <span class="sidebar-logo-text">Aqua<span>Pure</span></span>
+      </div>
+
+      <!-- User Info -->
+      <div class="sidebar-user">
+        <div class="user-avatar" id="sidebar-avatar">A</div>
+        <div class="user-info-text">
+          <div class="user-greeting">Good Day,</div>
+          <div class="user-name" id="sidebar-username">Loading...</div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="sidebar-nav" aria-label="Dashboard navigation">
+        <span class="sidebar-label">Main Menu</span>
+        <a href="#" class="sidebar-link active" id="nav-overview">
+          <span class="link-icon">🏠</span> Overview
+        </a>
+        <a href="#" class="sidebar-link" id="nav-services-link">
+          <span class="link-icon">🔧</span> My Services
+          <span class="link-badge">3</span>
+        </a>
+        <a href="#" class="sidebar-link" id="nav-book">
+          <span class="link-icon">📅</span> Book Service
+        </a>
+        <a href="#" class="sidebar-link" id="nav-history">
+          <span class="link-icon">📋</span> Service History
+        </a>
+
+        <span class="sidebar-label">Account</span>
+        <a href="#" class="sidebar-link" id="nav-profile">
+          <span class="link-icon">👤</span> My Profile
+        </a>
+        <a href="#" class="sidebar-link" id="nav-notifications">
+          <span class="link-icon">🔔</span> Notifications
+        </a>
+      </nav>
+
+      <!-- Logout -->
+      <div class="sidebar-bottom">
+        <button class="sidebar-logout" id="logout-btn" aria-label="Logout">
+          <span class="link-icon">🚪</span> Sign Out
+        </button>
+      </div>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="main-content">
+
+      <!-- Top Header -->
+      <header class="dash-header" aria-label="Dashboard header">
+        <div class="dash-header-left">
+          <button class="menu-toggle" id="menu-toggle" aria-label="Toggle sidebar">☰</button>
+          <div class="dash-breadcrumb">
+            Dashboard / <span>Overview</span>
+          </div>
+        </div>
+        <div class="dash-header-right">
+          <button class="notification-btn" id="notif-btn" aria-label="Notifications">
+            🔔
+            <span class="notif-dot"></span>
+          </button>
+          <div class="header-user" id="header-user-btn">
+            <div class="header-avatar" id="header-avatar">A</div>
+            <span class="header-user-name" id="header-username">Loading...</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Body -->
+      <main class="dash-body" aria-label="Dashboard content">
+
+        <!-- ===== PANEL: OVERVIEW (default) ===== -->
+        <div class="dash-panel" id="panel-overview">
+
+          <!-- Welcome Banner -->
+          <div class="welcome-banner">
+            <div class="welcome-text">
+              <div class="welcome-greeting">Welcome back 👋</div>
+              <div class="welcome-name">Hello, <span id="welcome-name">User</span>!</div>
+              <div class="welcome-sub">Your water purifier is running perfectly. Last check: today.</div>
+            </div>
+            <div class="welcome-action">
+              <button class="book-service-btn" id="book-service-main-btn">
+                📅 Book a Service
+              </button>
+            </div>
+          </div>
+
+          <!-- Stats Row -->
+          <div class="stats-row">
+            <div class="stat-card">
+              <div class="stat-card-icon blue">💧</div>
+              <div class="stat-card-info">
+                <div class="stat-val">3</div>
+                <div class="stat-lbl">Active Services</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card-icon green">✅</div>
+              <div class="stat-card-info">
+                <div class="stat-val">12</div>
+                <div class="stat-lbl">Services Completed</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card-icon yellow">⏰</div>
+              <div class="stat-card-info">
+                <div class="stat-val">45</div>
+                <div class="stat-lbl">Days to Filter Change</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card-icon purple">⭐</div>
+              <div class="stat-card-info">
+                <div class="stat-val">4.9</div>
+                <div class="stat-lbl">Your Rating</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Dashboard Grid -->
+          <div class="dash-grid">
+
+            <!-- Services Available Card -->
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <h2 class="dash-card-title">Available Services</h2>
+                <span class="dash-card-action" id="view-all-services">View All →</span>
+              </div>
+              <div class="dash-card-body">
+                <div class="service-item">
+                  <div class="service-item-icon si-blue">🔌</div>
+                  <div class="service-item-info">
+                    <div class="service-item-name">New Installation</div>
+                    <div class="service-item-desc">Professional setup by certified technician</div>
+                  </div>
+                  <button class="service-item-action" onclick="openBookingModal('New Installation')">Book</button>
+                </div>
+                <div class="service-item">
+                  <div class="service-item-icon si-green">🔧</div>
+                  <div class="service-item-info">
+                    <div class="service-item-name">Annual Maintenance</div>
+                    <div class="service-item-desc">Complete AMC check and cleaning service</div>
+                  </div>
+                  <button class="service-item-action" onclick="openBookingModal('Annual Maintenance')">Book</button>
+                </div>
+                <div class="service-item">
+                  <div class="service-item-icon si-orange">🔄</div>
+                  <div class="service-item-info">
+                    <div class="service-item-name">Filter Replacement</div>
+                    <div class="service-item-desc">Genuine certified filters, installed same day</div>
+                  </div>
+                  <button class="service-item-action" onclick="openBookingModal('Filter Replacement')">Book</button>
+                </div>
+                <div class="service-item">
+                  <div class="service-item-icon si-blue" style="background: linear-gradient(135deg, #dc2626, #f87171);">🚨</div>
+                  <div class="service-item-info">
+                    <div class="service-item-name">Emergency Repair</div>
+                    <div class="service-item-desc">Priority response within 4 hours</div>
+                  </div>
+                  <button class="service-item-action" onclick="openBookingModal('Emergency Repair')">Book</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- User Info Card -->
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <h2 class="dash-card-title">My Account</h2>
+                <span class="dash-card-action" id="edit-profile-btn">Edit →</span>
+              </div>
+              <div class="user-info-card">
+                <div class="user-info-avatar" id="profile-avatar">A</div>
+                <div class="user-info-fullname" id="profile-name">Loading...</div>
+                <div class="user-info-email" id="profile-email">loading@email.com</div>
+                <div class="user-info-tag">✅ Verified Member</div>
+                <div class="user-details-list">
+                  <div class="user-detail-row">
+                    <span class="detail-icon">📞</span>
+                    <span class="detail-label">Phone</span>
+                    <span class="detail-val" id="profile-phone">–</span>
+                  </div>
+                  <div class="user-detail-row">
+                    <span class="detail-icon">🗓️</span>
+                    <span class="detail-label">Member Since</span>
+                    <span class="detail-val" id="profile-joined">–</span>
+                  </div>
+                  <div class="user-detail-row">
+                    <span class="detail-icon">🌍</span>
+                    <span class="detail-label">Plan</span>
+                    <span class="detail-val">Rural Basic</span>
+                  </div>
+                  <div class="user-detail-row">
+                    <span class="detail-icon">⭐</span>
+                    <span class="detail-label">Status</span>
+                    <span class="detail-val" style="color:#059669;">Active</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Banner Image Row -->
+          <div class="banner-row">
+            <div class="banner-card">
+              <img src="images/hero-family.png" alt="Happy rural family with clean water" loading="lazy" />
+              <div class="banner-card-overlay">
+                <div class="banner-card-title">Happy Customers</div>
+                <div class="banner-card-sub">10,000+ rural families served</div>
+              </div>
+            </div>
+            <div class="banner-card">
+              <img src="images/technician-service.png" alt="Technician servicing water purifier" loading="lazy" />
+              <div class="banner-card-overlay">
+                <div class="banner-card-title">Expert Technicians</div>
+                <div class="banner-card-sub">Certified, trained professionals</div>
+              </div>
+            </div>
+            <div class="banner-card">
+              <img src="images/clean-water.png" alt="Pure clean drinking water" loading="lazy" />
+              <div class="banner-card-overlay">
+                <div class="banner-card-title">Pure Water</div>
+                <div class="banner-card-sub">WHO-compliant water quality</div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /panel-overview -->
+
+        <!-- ===== PANEL: MY SERVICES ===== -->
+        <div class="dash-panel" id="panel-services" style="display:none;">
+          <div class="panel-page-header">
+            <h1 class="panel-page-title">🔧 My Services</h1>
+            <button class="book-service-btn" id="book-service-panel-btn" style="font-size:0.9rem;padding:11px 22px;">📅 Book New Service</button>
+          </div>
+
+          <div class="dash-card" style="margin-bottom:24px;">
+            <div class="dash-card-header">
+              <h2 class="dash-card-title">Available Services</h2>
+            </div>
+            <div class="dash-card-body">
+              <div class="service-item">
+                <div class="service-item-icon si-blue">🔌</div>
+                <div class="service-item-info">
+                  <div class="service-item-name">New Installation</div>
+                  <div class="service-item-desc">Professional setup by certified technician – same-day in most areas</div>
+                </div>
+                <button class="service-item-action" onclick="openBookingModal('New Installation')">Book</button>
+              </div>
+              <div class="service-item">
+                <div class="service-item-icon si-green">🔧</div>
+                <div class="service-item-info">
+                  <div class="service-item-name">Annual Maintenance (AMC)</div>
+                  <div class="service-item-desc">Scheduled home visits, deep cleaning &amp; performance tuning</div>
+                </div>
+                <button class="service-item-action" onclick="openBookingModal('Annual Maintenance')">Book</button>
+              </div>
+              <div class="service-item">
+                <div class="service-item-icon si-orange">🔄</div>
+                <div class="service-item-info">
+                  <div class="service-item-name">Filter Replacement</div>
+                  <div class="service-item-desc">Genuine BIS-certified filters replaced with purity test</div>
+                </div>
+                <button class="service-item-action" onclick="openBookingModal('Filter Replacement')">Book</button>
+              </div>
+              <div class="service-item">
+                <div class="service-item-icon" style="background:linear-gradient(135deg,#0369a1,#38bdf8);">🧪</div>
+                <div class="service-item-info">
+                  <div class="service-item-name">Water Quality Testing</div>
+                  <div class="service-item-desc">WHO-standard 20-parameter test with digital report in 48 hrs</div>
+                </div>
+                <button class="service-item-action" onclick="openBookingModal('Water Quality Testing')">Book</button>
+              </div>
+              <div class="service-item">
+                <div class="service-item-icon" style="background:linear-gradient(135deg,#dc2626,#f87171);">🚨</div>
+                <div class="service-item-info">
+                  <div class="service-item-name">Emergency Repair</div>
+                  <div class="service-item-desc">24-hour response guarantee, even in remote areas</div>
+                </div>
+                <button class="service-item-action" onclick="openBookingModal('Emergency Repair')">Book</button>
+              </div>
+              <div class="service-item">
+                <div class="service-item-icon" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">🤝</div>
+                <div class="service-item-info">
+                  <div class="service-item-name">Community / Village Program</div>
+                  <div class="service-item-desc">Bulk installations &amp; NGO partnerships for panchayats</div>
+                </div>
+                <button class="service-item-action" onclick="openBookingModal('Community Program')">Enquire</button>
+              </div>
+            </div>
+          </div>
+        </div><!-- /panel-services -->
+
+        <!-- ===== PANEL: SERVICE HISTORY ===== -->
+        <div class="dash-panel" id="panel-history" style="display:none;">
+          <div class="panel-page-header">
+            <h1 class="panel-page-title">📋 Service History</h1>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h2 class="dash-card-title">Your Booking History</h2>
+              <span class="dash-card-action" id="refresh-history-btn">Refresh ↻</span>
+            </div>
+            <div class="dash-card-body" id="history-list">
+              <!-- Populated by JS -->
+              <p style="color:var(--text-light);text-align:center;padding:24px 0;">Loading history...</p>
+            </div>
+          </div>
+        </div><!-- /panel-history -->
+
+        <!-- ===== PANEL: PROFILE ===== -->
+        <div class="dash-panel" id="panel-profile" style="display:none;">
+          <div class="panel-page-header">
+            <h1 class="panel-page-title">👤 My Profile</h1>
+          </div>
+          <div class="dash-grid" style="grid-template-columns:1fr 1.4fr;">
+            <div class="dash-card">
+              <div class="dash-card-header"><h2 class="dash-card-title">Account Details</h2></div>
+              <div class="user-info-card">
+                <div class="user-info-avatar" id="profile-avatar-full" style="width:88px;height:88px;font-size:2.2rem;">A</div>
+                <div class="user-info-fullname" id="profile-name-full">Loading...</div>
+                <div class="user-info-email" id="profile-email-full">loading@email.com</div>
+                <div class="user-info-tag">✅ Verified Member</div>
+                <div class="user-details-list">
+                  <div class="user-detail-row">
+                    <span class="detail-icon">📞</span>
+                    <span class="detail-label">Phone</span>
+                    <span class="detail-val" id="profile-phone-full">–</span>
+                  </div>
+                  <div class="user-detail-row">
+                    <span class="detail-icon">🗓️</span>
+                    <span class="detail-label">Member Since</span>
+                    <span class="detail-val" id="profile-joined-full">–</span>
+                  </div>
+                  <div class="user-detail-row">
+                    <span class="detail-icon">🌍</span>
+                    <span class="detail-label">Plan</span>
+                    <span class="detail-val">Rural Basic</span>
+                  </div>
+                  <div class="user-detail-row">
+                    <span class="detail-icon">⭐</span>
+                    <span class="detail-label">Status</span>
+                    <span class="detail-val" style="color:#059669;">Active</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dash-card">
+              <div class="dash-card-header"><h2 class="dash-card-title">Account Settings</h2></div>
+              <div class="dash-card-body">
+                <div style="display:flex;flex-direction:column;gap:16px;">
+                  <div class="user-detail-row" style="flex-direction:column;align-items:flex-start;gap:8px;">
+                    <span style="font-size:0.82rem;font-weight:700;color:var(--text-light);">FULL NAME</span>
+                    <span id="settings-name" style="font-size:1rem;font-weight:600;color:var(--text-dark);">–</span>
+                  </div>
+                  <div class="user-detail-row" style="flex-direction:column;align-items:flex-start;gap:8px;">
+                    <span style="font-size:0.82rem;font-weight:700;color:var(--text-light);">EMAIL ADDRESS</span>
+                    <span id="settings-email" style="font-size:1rem;font-weight:600;color:var(--text-dark);">–</span>
+                  </div>
+                  <div class="user-detail-row" style="flex-direction:column;align-items:flex-start;gap:8px;">
+                    <span style="font-size:0.82rem;font-weight:700;color:var(--text-light);">PHONE NUMBER</span>
+                    <span id="settings-phone" style="font-size:1rem;font-weight:600;color:var(--text-dark);">–</span>
+                  </div>
+                  <div style="padding-top:12px;border-top:1px solid var(--light-bg);display:flex;gap:12px;flex-wrap:wrap;">
+                    <button class="book-service-btn" id="change-password-btn" style="background:var(--off-white);color:var(--primary);box-shadow:none;border:2px solid var(--primary);font-size:0.88rem;padding:10px 20px;">🔒 Change Password</button>
+                    <button class="book-service-btn" id="logout-profile-btn" style="background:linear-gradient(135deg,#ef4444,#f87171);font-size:0.88rem;padding:10px 20px;">🚪 Sign Out</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- /panel-profile -->
+
+        <!-- ===== PANEL: NOTIFICATIONS ===== -->
+        <div class="dash-panel" id="panel-notifications" style="display:none;">
+          <div class="panel-page-header">
+            <h1 class="panel-page-title">🔔 Notifications</h1>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-header"><h2 class="dash-card-title">Recent Notifications</h2></div>
+            <div class="dash-card-body" id="notifications-list">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div><!-- /panel-notifications -->
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ===== BOOKING MODAL ===== -->
+  <div class="modal-overlay" id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-title">Book a Service</h2>
+        <button class="modal-close" id="modal-close-btn" aria-label="Close modal">✕</button>
+      </div>
+      <form class="modal-form" id="booking-form">
+        <div>
+          <label for="modal-service">Service Type</label>
+          <select id="modal-service">
+            <option>New Installation</option>
+            <option>Annual Maintenance</option>
+            <option>Filter Replacement</option>
+            <option>Emergency Repair</option>
+          </select>
+        </div>
+        <div>
+          <label for="modal-date">Preferred Date</label>
+          <input type="date" id="modal-date" min="" />
+        </div>
+        <div>
+          <label for="modal-time">Preferred Time</label>
+          <select id="modal-time">
+            <option>9:00 AM – 11:00 AM</option>
+            <option>11:00 AM – 1:00 PM</option>
+            <option>2:00 PM – 4:00 PM</option>
+            <option>4:00 PM – 6:00 PM</option>
+          </select>
+        </div>
+        <div>
+          <label for="modal-address">Service Address</label>
+          <textarea id="modal-address" placeholder="Enter your complete village/town address..."></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="modal-cancel" id="modal-cancel-btn">Cancel</button>
+          <button type="submit" class="modal-submit">Confirm Booking ✅</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register – AquaPure | Create Your Account</title>
+  <meta name="description" content="Create your AquaPure account to book water purifier installation, maintenance, and filter replacement services in your village." />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+
+  <div class="auth-wrapper">
+
+    <!-- ===== LEFT VISUAL PANEL ===== -->
+    <aside class="auth-visual" aria-label="Registration benefits panel">
+      <div class="auth-visual-content">
+        <a href="index.html" class="auth-logo" aria-label="Go to AquaPure homepage">
+          <span class="auth-logo-icon">💧</span>
+          <span class="auth-logo-text">Aqua<span>Pure</span></span>
+        </a>
+
+        <div class="auth-tagline">
+          <h2>Join 10,000+<span> Families</span><br>with Clean Water</h2>
+          <p>
+            Register today and get access to installation, maintenance, and filter replacement services — right at your doorstep in your village.
+          </p>
+
+          <div class="auth-badges">
+            <span class="auth-badge">✅ Free First Service Check-Up</span>
+            <span class="auth-badge">💧 BIS Certified Purifiers</span>
+            <span class="auth-badge">🔧 24-Hour Support</span>
+            <span class="auth-badge">💸 EMI from ₹199/month</span>
+          </div>
+
+          <div class="auth-testimonial">
+            <p class="testimonial-text">
+              "AquaPure changed our life. We used to boil water every day. Now the purifier keeps our whole family safe and healthy. Best decision ever!"
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">👩</div>
+              <div>
+                <div class="author-name">Savita Devi</div>
+                <div class="author-place">Farmer, Rajasthan</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ===== RIGHT FORM PANEL ===== -->
+    <main class="auth-form-panel" aria-label="Registration form">
+      <div class="auth-form-inner">
+
+        <div class="auth-form-header">
+          <span class="form-icon">🌊</span>
+          <h1>Create Account</h1>
+          <p>Already have an account? <a href="login.html">Sign in here</a></p>
+        </div>
+
+        <!-- Alert -->
+        <div class="auth-alert error" id="register-alert" role="alert" aria-live="polite">
+          <span>⚠️</span>
+          <span id="register-alert-msg"></span>
+        </div>
+
+        <form class="auth-form" id="register-form" novalidate>
+
+          <!-- Full Name -->
+          <div class="form-group">
+            <label for="reg-name">Full Name</label>
+            <div class="input-wrap">
+              <span class="input-icon">👤</span>
+              <input
+                type="text"
+                id="reg-name"
+                name="name"
+                placeholder="Enter your full name"
+                autocomplete="name"
+                required
+              />
+            </div>
+            <span class="field-msg" id="name-msg"></span>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="reg-email">Email Address</label>
+            <div class="input-wrap">
+              <span class="input-icon">✉️</span>
+              <input
+                type="email"
+                id="reg-email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <span class="field-msg" id="email-msg"></span>
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group">
+            <label for="reg-phone">Phone Number</label>
+            <div class="input-wrap">
+              <span class="input-icon">📞</span>
+              <input
+                type="tel"
+                id="reg-phone"
+                name="phone"
+                placeholder="+91 XXXXX XXXXX"
+                autocomplete="tel"
+                required
+              />
+            </div>
+            <span class="field-msg" id="phone-msg"></span>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label for="reg-password">Password</label>
+            <div class="input-wrap">
+              <span class="input-icon">🔒</span>
+              <input
+                type="password"
+                id="reg-password"
+                name="password"
+                placeholder="Create a strong password"
+                autocomplete="new-password"
+                required
+              />
+              <button type="button" class="password-toggle" id="toggle-reg-pass" aria-label="Toggle password visibility">👁️</button>
+            </div>
+            <div class="password-strength" id="password-strength">
+              <div class="strength-bars">
+                <div class="strength-bar" id="bar1"></div>
+                <div class="strength-bar" id="bar2"></div>
+                <div class="strength-bar" id="bar3"></div>
+                <div class="strength-bar" id="bar4"></div>
+              </div>
+              <span class="strength-label" id="strength-label">Weak</span>
+            </div>
+            <span class="field-msg" id="pass-msg"></span>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="form-group">
+            <label for="reg-confirm">Confirm Password</label>
+            <div class="input-wrap">
+              <span class="input-icon">🔐</span>
+              <input
+                type="password"
+                id="reg-confirm"
+                name="confirm"
+                placeholder="Re-enter your password"
+                autocomplete="new-password"
+                required
+              />
+              <button type="button" class="password-toggle" id="toggle-confirm-pass" aria-label="Toggle confirm password visibility">👁️</button>
+            </div>
+            <span class="field-msg" id="confirm-msg"></span>
+          </div>
+
+          <!-- Terms -->
+          <div class="terms-wrap">
+            <input type="checkbox" id="reg-terms" name="terms" />
+            <label for="reg-terms">
+              I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a> of AquaPure
+            </label>
+          </div>
+          <span class="field-msg" id="terms-msg"></span>
+
+          <!-- Submit -->
+          <button type="submit" class="auth-submit-btn" id="register-submit-btn">
+            <span id="reg-btn-text">Create Account 🚀</span>
+            <span class="btn-spinner" id="reg-spinner"></span>
+          </button>
+
+        </form>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

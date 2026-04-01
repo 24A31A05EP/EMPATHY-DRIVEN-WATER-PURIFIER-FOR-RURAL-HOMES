@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In – AquaPure | Your Water, Your Dashboard</title>
+  <meta name="description" content="Sign in to your AquaPure account to manage your water purifier services, track bookings, and access your dashboard." />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+
+  <div class="auth-wrapper">
+
+    <!-- ===== LEFT VISUAL PANEL ===== -->
+    <aside class="auth-visual" aria-label="Sign in benefits panel">
+      <div class="auth-visual-content">
+        <a href="index.html" class="auth-logo" aria-label="Go to AquaPure homepage">
+          <span class="auth-logo-icon">💧</span>
+          <span class="auth-logo-text">Aqua<span>Pure</span></span>
+        </a>
+
+        <div class="auth-tagline">
+          <h2>Welcome<span> Back!</span><br>Your Clean Water Awaits</h2>
+          <p>
+            Sign in to manage your services, track your technician visits, renew your filter subscription, and stay on top of your water quality.
+          </p>
+
+          <div class="auth-badges">
+            <span class="auth-badge">📊 Track All Services</span>
+            <span class="auth-badge">🔔 Real-time Alerts</span>
+            <span class="auth-badge">📅 Easy Scheduling</span>
+            <span class="auth-badge">💳 Manage Payments</span>
+          </div>
+
+          <div class="auth-testimonial">
+            <p class="testimonial-text">
+              "The dashboard helped me track when my filter was due. The reminder saved us from drinking unfiltered water for weeks. Very helpful!"
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">👨</div>
+              <div>
+                <div class="author-name">Ranjit Kumar</div>
+                <div class="author-place">Teacher, Bihar</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ===== RIGHT FORM PANEL ===== -->
+    <main class="auth-form-panel" aria-label="Login form">
+      <div class="auth-form-inner">
+
+        <div class="auth-form-header">
+          <span class="form-icon">🔐</span>
+          <h1>Sign In</h1>
+          <p>Don't have an account? <a href="register.html">Register for free</a></p>
+        </div>
+
+        <!-- Alert -->
+        <div class="auth-alert" id="login-alert" role="alert" aria-live="polite">
+          <span>⚠️</span>
+          <span id="login-alert-msg"></span>
+        </div>
+
+        <form class="auth-form" id="login-form" novalidate>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="login-email">Email Address</label>
+            <div class="input-wrap">
+              <span class="input-icon">✉️</span>
+              <input
+                type="email"
+                id="login-email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <span class="field-msg" id="login-email-msg"></span>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <div class="input-wrap">
+              <span class="input-icon">🔒</span>
+              <input
+                type="password"
+                id="login-password"
+                name="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                required
+              />
+              <button type="button" class="password-toggle" id="toggle-login-pass" aria-label="Toggle password visibility">👁️</button>
+            </div>
+            <span class="field-msg" id="login-pass-msg"></span>
+          </div>
+
+          <div class="forgot-link">
+            <a href="#">Forgot password?</a>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="auth-submit-btn" id="login-submit-btn">
+            <span id="login-btn-text">Sign In 🚀</span>
+            <span class="btn-spinner" id="login-spinner"></span>
+          </button>
+
+        </form>
+
+        <div style="margin-top: 28px; text-align: center; font-size: 0.82rem; color: #6e8fa3;">
+          <p>New to AquaPure? <a href="register.html" style="color:#0077b6; font-weight:700;">Create a free account →</a></p>
+        </div>
+
+        <!-- Demo Hint -->
+        <div style="margin-top: 20px; padding: 14px; background:#f0f8ff; border-radius: 8px; border: 1px dashed #90e0ef; text-align: center;">
+          <p style="font-size: 0.78rem; color: #3d5a6e; font-weight: 500;">
+            💡 <strong>Demo:</strong> Register first, then sign in with your credentials.
+          </p>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>
